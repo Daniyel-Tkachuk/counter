@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import {CounterWrapper} from "./components/wrapper/CounterWrapper";
+import {Counter} from "./components/wrapper/Counter";
 
 function App() {
    return (
       <div className="App">
-         <CounterWrapper/>
+         <Counter variant="count"/>
       </div>
    );
 }

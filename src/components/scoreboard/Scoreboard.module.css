@@ -1,7 +1,4 @@
 .scoreboard {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: 2px solid rgb(6, 200, 248);
     border-radius: 5px;
     margin-bottom: 15px;
@@ -10,6 +7,10 @@
 }
 
 .count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     font-size: 60px;
     font-weight: bold;
     color: rgb(6, 200, 248);
