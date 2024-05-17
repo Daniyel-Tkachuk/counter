@@ -1,48 +1,41 @@
 import React, {FC} from 'react';
 import s from './Scoreboard.module.css';
 
-type Props = {
-   variant: "count" | "settings"
-}
+type Props = {}
 
 export const Scoreboard: FC<Props> = (props) => {
-   const {variant} = props;
-
-   const JSX = variant === "count"
-      ? <CountScoreboard currentValue={2}/>
-      : <SettingsScoreboard />
+   const {} = props;
 
 
    return (
       <div className={s.scoreboard}>
-         <div className={s.count}>
-            {JSX}
+         {/*<div className={s.count}>*/}
+         {/*   0*/}
+         {/*</div>*/}
+         <div className={s.settings}>
+            <SettingScoreBoard/>
          </div>
       </div>
    );
 };
 
-type PropsCount = {
-   currentValue?: number
-}
+type PropsSettings = {
 
-const CountScoreboard: FC<PropsCount> = (props) => {
-   const {currentValue} = props;
+}
+export const SettingScoreBoard: FC<PropsSettings> = (props) => {
+   const {} = props;
 
    return (
-      <span>{currentValue}</span>
+      <>
+         <div>
+            <span className={s.span}>max value:</span>
+            <input type="number" className={s.input}/>
+         </div>
+         <div>
+            <span className={s.span}>max value:</span>
+            <input type="number" className={s.input}/>
+         </div>
+      </>
    )
 }
 
-type PropsSettings = {
-   minValue?: number
-   maxValue?: number
-}
-
-const SettingsScoreboard: FC<PropsSettings> = (props) => {
-   const {minValue, maxValue} = props;
-
-   return (
-     <div></div>
-   );
-}
