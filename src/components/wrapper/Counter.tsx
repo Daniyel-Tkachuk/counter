@@ -12,7 +12,7 @@ export const Counter: FC<Props> = (props) => {
 
    return (
       <div className={s.counter}>
-            <Scoreboard />
+            <Scoreboard variant="settings"/>
             <div className={s.btnWrapper}>
                <Button title="inc" callback={() => {}}/>
                <Button title="reset" callback={() => {}}/>

@@ -1,28 +1,32 @@
 import React, {FC} from 'react';
 import s from './Scoreboard.module.css';
 
-type Props = {}
+type Props = {
+   variant: "count" | "settings"
+}
 
 export const Scoreboard: FC<Props> = (props) => {
-   const {} = props;
+   const {variant} = props;
+
+   const stylesDisplay = variant === "count" ? s.count : s.settings;
+   const displayJSX = variant === "count"
+      ? <CounterValue/>
+      : <CounterSettings/>
 
 
    return (
       <div className={s.scoreboard}>
-         {/*<div className={s.count}>*/}
-         {/*   0*/}
-         {/*</div>*/}
-         <div className={s.settings}>
-            <SettingScoreBoard/>
+         <div className={stylesDisplay}>
+            {displayJSX}
          </div>
       </div>
    );
 };
 
-type PropsSettings = {
+type CounterSettings = {
 
 }
-export const SettingScoreBoard: FC<PropsSettings> = (props) => {
+export const CounterSettings: FC<CounterSettings> = (props) => {
    const {} = props;
 
    return (
@@ -35,6 +39,19 @@ export const SettingScoreBoard: FC<PropsSettings> = (props) => {
             <span className={s.span}>max value:</span>
             <input type="number" className={s.input}/>
          </div>
+      </>
+   )
+};
+
+type CounterValueProps = {
+
+}
+export const CounterValue: FC<CounterValueProps> = (props) => {
+   const {} = props;
+
+   return (
+      <>
+         1
       </>
    )
 }
