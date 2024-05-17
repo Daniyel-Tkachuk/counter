@@ -8,14 +8,3 @@
     font-weight: bold;
     color: rgb(6, 200, 248);
 }
-
-.input {
-    width: 140px;
-    font-size: 15px;
-    text-align: center;
-    font-weight: bold;
-    outline: none;
-    padding: 5px;
-    border: 2px solid rgb(6, 200, 248);
-    border-radius: 5px;
-}
