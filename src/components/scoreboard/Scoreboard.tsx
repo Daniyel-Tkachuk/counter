@@ -1,5 +1,7 @@
 import React, {FC} from 'react';
 import s from './Scoreboard.module.css';
+import {CountValue} from "./countValue/CountValue";
+import {CounterSettings} from "./counterSettings/CounterSettings";
 
 type Props = {
    variant: "count" | "settings"
@@ -8,51 +10,20 @@ type Props = {
 export const Scoreboard: FC<Props> = (props) => {
    const {variant} = props;
 
-   const stylesDisplay = variant === "count" ? s.count : s.settings;
+   const stylesForDisplay = variant === "count" ? s.count : s.settings;
    const displayJSX = variant === "count"
-      ? <CounterValue/>
+      ? <CountValue/>
       : <CounterSettings/>
-
 
    return (
       <div className={s.scoreboard}>
-         <div className={stylesDisplay}>
+         <div className={stylesForDisplay}>
             {displayJSX}
          </div>
       </div>
    );
 };
 
-type CounterSettings = {
 
-}
-export const CounterSettings: FC<CounterSettings> = (props) => {
-   const {} = props;
 
-   return (
-      <>
-         <div>
-            <span className={s.span}>max value:</span>
-            <input type="number" className={s.input}/>
-         </div>
-         <div>
-            <span className={s.span}>max value:</span>
-            <input type="number" className={s.input}/>
-         </div>
-      </>
-   )
-};
-
-type CounterValueProps = {
-
-}
-export const CounterValue: FC<CounterValueProps> = (props) => {
-   const {} = props;
-
-   return (
-      <>
-         1
-      </>
-   )
-}
 

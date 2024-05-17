@@ -1,13 +1,23 @@
 import React from 'react';
 import './App.css';
-import {Counter} from "./components/wrapper/Counter";
+import {Settings} from "./components/settings/Settings";
+import {Counter} from "./components/counter/Counter";
+import {CounterWrapper} from "./components/wrapper/CounterWrapper";
 
 function App() {
    return (
       <div className="App">
-         <Counter />
+         <div className={"flex-container"}>
+            <CounterWrapper>
+               <Counter/>
+            </CounterWrapper>
+            <CounterWrapper>
+               <Settings/>
+            </CounterWrapper>
+         </div>
       </div>
    );
 }
 
 export default App;
+
