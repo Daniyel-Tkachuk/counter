@@ -3,17 +3,21 @@ import s from './Counter.module.css';
 import {Scoreboard} from "../scoreboard/Scoreboard";
 import {Button} from "../button/Button";
 
-type Props = {}
+type Props = {
+   currentValue: number
+   incCurrentValue: () => void
+   resCurrentValue: () => void
+}
 
 export const Counter: FC<Props> = (props) => {
-   const {} = props;
+   const {currentValue, incCurrentValue, resCurrentValue} = props;
 
    return (
       <>
-         <Scoreboard variant="count"/>
+         <Scoreboard variant="count" currentValue={currentValue}/>
          <div className={s.btnWrapper}>
-            <Button title="inc" callback={() => {}}/>
-            <Button title="reset" callback={() => {}}/>
+            <Button title="inc" callback={incCurrentValue}/>
+            <Button title="reset" callback={resCurrentValue}/>
          </div>
       </>
 

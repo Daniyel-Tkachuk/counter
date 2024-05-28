@@ -1,14 +1,14 @@
 import React, {FC} from "react";
 
 type Props = {
-
+   currentValue: number
 }
 export const CountValue: FC<Props> = (props) => {
-   const {} = props;
+   const {currentValue} = props;
 
    return (
       <>
-         1
+         {currentValue}
       </>
    )
 }
