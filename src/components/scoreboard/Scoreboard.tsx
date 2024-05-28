@@ -22,7 +22,7 @@ export const Scoreboard: FC<Props> = (props) => {
    const stylesForDisplay = variant === "count" ? s.count : s.settings;
 
    const displayJSX = variant === "count"
-      ? <CountValue currentValue={valueForCount}/>
+      ? <CountValue currentValue={valueForCount} maxValue={max}/>
       : <CounterSettings minValue={min} maxValue={max} changeMinMaxValue={changeMinMaxValue}/>
 
    return (

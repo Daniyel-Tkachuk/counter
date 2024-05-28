@@ -1,0 +1,9 @@
+.currentValue {
+    font-size: 60px;
+    font-weight: bold;
+    color: rgb(6, 200, 248);
+}
+
+.max {
+    color: red;
+}

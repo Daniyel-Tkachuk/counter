@@ -7,7 +7,7 @@ import {CounterWrapper} from "./components/wrapper/CounterWrapper";
 function App() {
 
    const [state, setState] = useState({
-      currentValue: 0,
+      currentValue: 2,
       minValue: 2,
       maxValue: 5,
    });
@@ -18,7 +18,7 @@ function App() {
       setState({...state, currentValue: currentValue + 1});
    }
    const resCurrentValue = () => {
-      setState({...state, currentValue: 0});
+      setState({...state, currentValue: state.minValue});
    }
 
    const changeMinMaxValue = (key: "minValue" | "maxValue", value: number) => {
@@ -33,6 +33,7 @@ function App() {
                         incCurrentValue={incCurrentValue}
                         resCurrentValue={resCurrentValue}
                         maxValue={maxValue}
+                        minValue={minValue}
                />
             </CounterWrapper>
             <CounterWrapper>

@@ -14,8 +14,10 @@ export const Button: FC<Props> = (props) => {
       callback()
    }
 
+   const stylesForButton = `${s.button} ${disabled ? s.disabled : ""}`
+
    return (
-      <button className={s.button} onClick={onClickHandler} disabled={disabled}>
+      <button className={stylesForButton} onClick={onClickHandler} disabled={disabled}>
          {title}
       </button>)
 };
