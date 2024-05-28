@@ -7,17 +7,20 @@ type Props = {
    currentValue: number
    incCurrentValue: () => void
    resCurrentValue: () => void
+   maxValue: number
 }
 
 export const Counter: FC<Props> = (props) => {
-   const {currentValue, incCurrentValue, resCurrentValue} = props;
+   const {currentValue, maxValue, incCurrentValue, resCurrentValue} = props;
+
+   const disabledForInc = maxValue === currentValue;
 
    return (
       <>
          <Scoreboard variant="count" currentValue={currentValue}/>
          <div className={s.btnWrapper}>
-            <Button title="inc" callback={incCurrentValue}/>
-            <Button title="reset" callback={resCurrentValue}/>
+            <Button title="inc" callback={incCurrentValue} disabled={disabledForInc}/>
+            <Button title="reset" callback={resCurrentValue} disabled={true}/>
          </div>
       </>
 

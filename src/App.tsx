@@ -32,6 +32,7 @@ function App() {
                <Counter currentValue={currentValue}
                         incCurrentValue={incCurrentValue}
                         resCurrentValue={resCurrentValue}
+                        maxValue={maxValue}
                />
             </CounterWrapper>
             <CounterWrapper>
