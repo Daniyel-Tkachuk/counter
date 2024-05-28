@@ -21,8 +21,8 @@ function App() {
       setState({...state, currentValue: 0});
    }
 
-   const changeMaxValue = (value: number) => {
-      setState({...state, maxValue: value});
+   const changeMinMaxValue = (key: "minValue" | "maxValue", value: number) => {
+      setState({...state, [key]: value});
    }
 
    return (
@@ -37,7 +37,7 @@ function App() {
             <CounterWrapper>
                <Settings minValue={minValue}
                          maxValue={maxValue}
-                         changeMaxValue={changeMaxValue}
+                         changeMinMaxValue={changeMinMaxValue}
                />
             </CounterWrapper>
          </div>
