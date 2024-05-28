@@ -5,6 +5,11 @@
     font-weight: bold;
     outline: none;
     padding: 5px;
-    border: 2px solid rgb(6, 200, 248);
+    border: 3px solid rgb(6, 200, 248);
     border-radius: 5px;
+}
+
+.inputError {
+    border: 3px solid red;
+    background-color: rgba(139, 0, 0, 0.78);
 }

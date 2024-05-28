@@ -22,11 +22,11 @@ export const CounterSettings: FC<Props> = (props) => {
       <>
          <div className={s.container}>
             <span className={s.span}>max value:</span>
-            <Input value={maxValue} onChangeValue={onChangeMaxValue}/>
+            <Input value={maxValue} onChangeValue={onChangeMaxValue} error={false}/>
          </div>
          <div className={s.container}>
             <span className={s.span}>start value:</span>
-            <Input value={minValue} onChangeValue={onChangeMinValue}/>
+            <Input value={minValue} onChangeValue={onChangeMinValue} error={false}/>
          </div>
       </>
    )

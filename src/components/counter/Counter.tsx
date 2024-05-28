@@ -16,7 +16,7 @@ export const Counter: FC<Props> = (props) => {
    const {currentValue, maxValue, minValue, clueText,
       incCurrentValue, resCurrentValue} = props;
 
-   const disabledForInc = maxValue === currentValue;
+   const disabledForInc = maxValue === currentValue || currentValue === -1;
    const disabledForRes = minValue === currentValue || currentValue === -1;
 
 

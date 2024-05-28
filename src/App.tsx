@@ -47,9 +47,6 @@ function App() {
       });
    }
 
-   console.log(state.currentValue)
-
-
    return (
       <div className="App">
          <div className={"flex-container"}>
@@ -63,7 +60,8 @@ function App() {
                />
             </CounterWrapper>
             <CounterWrapper>
-               <Settings minValue={minValue}
+               <Settings clueText={clueText}
+                         minValue={minValue}
                          maxValue={maxValue}
                          changeMinMaxValue={changeMinMaxValue}
                          setSettings={setSettings}
