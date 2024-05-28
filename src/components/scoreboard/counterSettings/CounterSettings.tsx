@@ -18,15 +18,20 @@ export const CounterSettings: FC<Props> = (props) => {
       changeMinMaxValue && changeMinMaxValue("maxValue", maxValue)
    }
 
+   const errorInputStyles = maxValue === minValue
+   || maxValue < 0
+   || minValue < 0
+   || minValue > maxValue;
+
    return (
       <>
          <div className={s.container}>
             <span className={s.span}>max value:</span>
-            <Input value={maxValue} onChangeValue={onChangeMaxValue} error={false}/>
+            <Input value={maxValue} onChangeValue={onChangeMaxValue} errorStyles={errorInputStyles}/>
          </div>
          <div className={s.container}>
             <span className={s.span}>start value:</span>
-            <Input value={minValue} onChangeValue={onChangeMinValue} error={false}/>
+            <Input value={minValue} onChangeValue={onChangeMinValue} errorStyles={errorInputStyles}/>
          </div>
       </>
    )
