@@ -9,11 +9,11 @@ type Props = {
 export const Input: FC<Props> = (props) => {
    const {value, onChangeValue} = props;
 
-   const onChangeValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
+   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
       onChangeValue && onChangeValue(+e.currentTarget.value)
    }
 
    return (
-      <input type="number" value={value} className={s.input} onChange={onChangeValueHandler}/>
+      <input type="number" value={value} className={s.input} onChange={onChangeHandler}/>
    );
 };

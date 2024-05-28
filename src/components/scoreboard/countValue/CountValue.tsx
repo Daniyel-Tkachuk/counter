@@ -4,15 +4,22 @@ import s from './CountValue.module.css';
 type Props = {
    currentValue: number
    maxValue: number
+   clueText: string | null
 }
 export const CountValue: FC<Props> = (props) => {
-   const {currentValue, maxValue} = props;
+   const {currentValue, maxValue, clueText} = props;
 
-   const styles = `${s.currentValue} ${currentValue === maxValue && s.max}`
+   const styles = `${s.currentValue} ${currentValue === maxValue && s.max}`;
+
+   const getValue = () => {
+      return clueText === null
+         ? <span className={styles}>{currentValue}</span>
+         : <span className={s.text}>{clueText}</span>
+   }
 
    return (
-      <span className={styles}>
-         {currentValue}
-      </span>
+      <>
+         {getValue()}
+      </>
    )
 }

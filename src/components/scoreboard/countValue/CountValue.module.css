@@ -7,3 +7,9 @@
 .max {
     color: red;
 }
+
+.text {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(6, 200, 248);
+}

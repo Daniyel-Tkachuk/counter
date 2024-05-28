@@ -9,21 +9,24 @@ type Props = {
    resCurrentValue: () => void
    maxValue: number
    minValue: number
+   clueText: string | null
 }
 
 export const Counter: FC<Props> = (props) => {
-   const {currentValue, maxValue, minValue,
+   const {currentValue, maxValue, minValue, clueText,
       incCurrentValue, resCurrentValue} = props;
 
    const disabledForInc = maxValue === currentValue;
-   const disabledForRes = minValue === currentValue;
+   const disabledForRes = minValue === currentValue || currentValue === -1;
 
 
    return (
       <>
          <Scoreboard variant="count"
                      currentValue={currentValue}
-                     maxValue={maxValue}/>
+                     maxValue={maxValue}
+                     clueText={clueText}
+         />
          <div className={s.btnWrapper}>
             <Button title="inc" callback={incCurrentValue} disabled={disabledForInc}/>
             <Button title="reset" callback={resCurrentValue} disabled={disabledForRes}/>
