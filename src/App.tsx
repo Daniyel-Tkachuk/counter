@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Container} from "./components/container/Container";
+import {Counter} from "./components/counter/Counter";
+import {Settings} from "./components/settings/Settings";
 
 
 type StateType = {
    currentValue: number,
    minValue: number,
-   maxValue: number,
+   startValue: number,
    clueText: string | null
 }
 
@@ -15,7 +17,7 @@ function App() {
    const [state, setState] = useState<StateType>({
       currentValue: 0,
       minValue: 0,
-      maxValue: 5,
+      startValue: 5,
       clueText: null
    });
 
@@ -24,10 +26,10 @@ function App() {
       <div className="App">
         <div className={"flex-container"}>
            <Container>
-              asd
+              <Counter/>
            </Container>
            <Container>
-              asd
+              <Settings/>
            </Container>
         </div>
       </div>
