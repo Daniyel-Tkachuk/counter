@@ -4,8 +4,13 @@
     font-weight: 600;
     width: 180px;
     padding: 5px;
-    border: 2px solid rgb(6, 200, 248);
+    border: 2px solid var(--light-blue-color);
     border-radius: 3px;
     outline: none;
     background-color: #bbe9fa;
+}
+
+.error {
+    border: 2px solid var(--error-color);
+    background-color: var(--error-dark-color);
 }

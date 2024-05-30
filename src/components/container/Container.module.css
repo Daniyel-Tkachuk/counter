@@ -1,5 +1,5 @@
 .container {
-    border: 2px solid rgb(6, 200, 248);
+    border: 2px solid var(--light-blue-color);
     border-radius: 5px;
     padding: 15px;
     width: 400px;

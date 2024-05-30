@@ -1,6 +1,6 @@
 .button {
     padding: 0 20px;
-    background-color: rgb(6, 200, 248);
+    background-color: var(--light-blue-color);
     border: none;
     border-radius: 5px;
     font-size: 30px;

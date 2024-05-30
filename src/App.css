@@ -4,12 +4,19 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-color: #282c34;
+    --light-blue-color: #06C8F8FF;
+    --error-color: #FF0000FF;
+    --error-dark-color: #FF000075;
+}
+
 .App {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: #282c34;
+    background: var(--bg-color);
 }
 
 .flex-container {

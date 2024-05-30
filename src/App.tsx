@@ -10,6 +10,7 @@ export type StateType = {
    maxValue: number,
    startValue: number,
    clueText: string | null
+   errorText: string
 }
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
       currentValue: 2,
       maxValue: 5,
       startValue: 2,
-      clueText: null
+      clueText: null,
+      errorText: "incorrectValue"
    });
 
    const incrementCounter = () => {
@@ -42,7 +44,19 @@ function App() {
    const updateCounterLimits = (key: "startValue" | "maxValue", value: number) => {
       setState({
          ...state,
-         [key]: value
+         [key]: value,
+         currentValue: -1,
+         clueText: "enter values and press 'set'"
+      })
+   }
+
+   const setCounterLimit = () => {
+      setState(prevState => {
+         return {
+            ...prevState,
+            currentValue: prevState.startValue,
+            clueText: null,
+         }
       })
    }
 
@@ -51,10 +65,16 @@ function App() {
       <div className="App">
          <div className={"flex-container"}>
             <Container>
-               <Counter state={state} incrCounter={incrementCounter} resCounter={resetCounter}/>
+               <Counter state={state}
+                        incrCounter={incrementCounter}
+                        resCounter={resetCounter}
+               />
             </Container>
             <Container>
-               <Settings/>
+               <Settings state={state}
+                         updateCounterLimits={updateCounterLimits}
+                         setCounterLimit={setCounterLimit}
+               />
             </Container>
          </div>
       </div>
