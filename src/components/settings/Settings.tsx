@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import s from './Settings.module.css';
 import {Button} from "../button/Button";
 import {Input} from "../input/Input";
+import {Text} from "../text/Text";
 
 type Props = {
 
@@ -12,11 +13,11 @@ export const Settings: FC<Props> = (props) => {
       <div className={s.settings}>
         <div className={s.settingsField}>
             <div>
-               <span>max value:</span>
+               <Text text="max value:"/>
                <Input/>
             </div>
            <div>
-              <span>start value:</span>
+              <Text text="start value:"/>
               <Input/>
            </div>
         </div>
