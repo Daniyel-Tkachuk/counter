@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Container} from "./components/container/Container";
 import {Counter} from "./components/counter/Counter";
@@ -15,13 +15,22 @@ export type StateType = {
 
 function App() {
 
-   const [state, setState] = useState<StateType>({
-      currentValue: 2,
-      maxValue: 5,
-      startValue: 2,
-      clueText: null,
-      errorText: "incorrectValue"
+   const [state, setState] = useState<StateType>(() => {
+      const saveState = localStorage.getItem("state");
+      if (saveState) return JSON.parse(saveState);
+
+      return {
+         currentValue: 2,
+         maxValue: 5,
+         startValue: 2,
+         clueText: null,
+         errorText: "incorrectValue"
+      }
    });
+
+   useEffect(() => {
+      localStorage.setItem("state", JSON.stringify(state));
+   }, [state])
 
    const incrementCounter = () => {
       setState(prevState => {
