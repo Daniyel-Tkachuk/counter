@@ -5,9 +5,9 @@ import {Counter} from "./components/counter/Counter";
 import {Settings} from "./components/settings/Settings";
 
 
-type StateType = {
+export type StateType = {
    currentValue: number,
-   minValue: number,
+   maxValue: number,
    startValue: number,
    clueText: string | null
 }
@@ -16,17 +16,37 @@ function App() {
 
    const [state, setState] = useState<StateType>({
       currentValue: 0,
-      minValue: 0,
-      startValue: 5,
+      maxValue: 0,
+      startValue: 0,
       clueText: null
    });
+
+   const incrementCounter = () => {
+      setState(prevState => {
+         return {
+            ...prevState,
+            currentValue: prevState.currentValue + 1
+         }
+      })
+   }
+
+   const resetCounter = () => {
+      setState(prevState => {
+         return {
+            ...prevState,
+            currentValue: prevState.startValue
+         }
+      })
+   }
+
+
 
 
    return (
       <div className="App">
         <div className={"flex-container"}>
            <Container>
-              <Counter/>
+              <Counter state={state} incrCounter={incrementCounter} resCounter={resetCounter}/>
            </Container>
            <Container>
               <Settings/>
