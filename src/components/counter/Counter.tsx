@@ -21,14 +21,19 @@ export const Counter: FC<Props> = (props) => {
       resCounter,
    } = props;
 
+   const disabledInc = currentValue === max;
+   const disabledRes = currentValue === start;
+
+   const stylesForValue = `${s.value} ${currentValue === max ? s.maxValue : ""}`;
+
    return (
       <div className={s.counter}>
          <div className={s.display}>
-            <span>{currentValue}</span>
+            <span className={stylesForValue}>{currentValue}</span>
          </div>
          <div className={s.buttons}>
-            <Button text="inc" onClick={incrCounter}/>
-            <Button text="reset" onClick={resCounter}/>
+            <Button text="inc" disabled={disabledInc} onClick={incrCounter} />
+            <Button text="reset" disabled={disabledRes} onClick={resCounter} />
          </div>
       </div>
    );

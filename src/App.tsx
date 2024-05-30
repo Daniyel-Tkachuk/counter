@@ -15,9 +15,9 @@ export type StateType = {
 function App() {
 
    const [state, setState] = useState<StateType>({
-      currentValue: 0,
-      maxValue: 0,
-      startValue: 0,
+      currentValue: 2,
+      maxValue: 5,
+      startValue: 2,
       clueText: null
    });
 
@@ -39,19 +39,24 @@ function App() {
       })
    }
 
-
+   const updateCounterLimits = (key: "startValue" | "maxValue", value: number) => {
+      setState({
+         ...state,
+         [key]: value
+      })
+   }
 
 
    return (
       <div className="App">
-        <div className={"flex-container"}>
-           <Container>
-              <Counter state={state} incrCounter={incrementCounter} resCounter={resetCounter}/>
-           </Container>
-           <Container>
-              <Settings/>
-           </Container>
-        </div>
+         <div className={"flex-container"}>
+            <Container>
+               <Counter state={state} incrCounter={incrementCounter} resCounter={resetCounter}/>
+            </Container>
+            <Container>
+               <Settings/>
+            </Container>
+         </div>
       </div>
    );
 }

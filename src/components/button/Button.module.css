@@ -5,9 +5,8 @@
     border-radius: 5px;
     font-size: 30px;
     font-weight: 900;
-    transition: all .3s;
 }
 
-.button:hover {
-    background-color: rgb(1, 138, 173);
+.button:disabled {
+    opacity: .4;
 }

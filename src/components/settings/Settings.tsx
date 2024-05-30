@@ -22,7 +22,7 @@ export const Settings: FC<Props> = (props) => {
            </div>
         </div>
          <div className={s.buttons}>
-            <Button text="set"/>
+            <Button text="set" disabled={false} onClick={() => {}}/>
          </div>
       </div>
    );

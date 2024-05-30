@@ -15,11 +15,14 @@
     border-radius: 5px;
 }
 
-.display span {
-    display: block;
+.value {
     font-size: 8vh;
     font-weight: 700;
     color: rgb(6, 200, 248);
+}
+
+.maxValue {
+    color: #ff0000;
 }
 
 .buttons {
