@@ -1,14 +1,24 @@
 
-export type StateType = {
+/*export type StateType = {
    currentValue: number
    maxValue: number
    startValue: number
    clueText: string | null
    errorText: string
+}*/
+
+type StateType = typeof initialState;
+
+const initialState = {
+   currentValue: 2,
+   maxValue: 5,
+   startValue: 2,
+   clueText: null as string | null,
+   errorText: "incorrectValue"
 }
 
 
-export const counterReducer = (state: StateType, action: ActionsType): StateType => {
+export const counterReducer = (state: StateType = initialState, action: ActionsType): StateType => {
    switch (action.type) {
       case "INCREMENT": {
          return {
