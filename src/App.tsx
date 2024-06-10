@@ -1,72 +1,38 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
 import {Container} from "./components/container/Container";
 import {Counter} from "./components/counter/Counter";
 import {Settings} from "./components/settings/Settings";
-
-
-export type StateType = {
-   currentValue: number,
-   maxValue: number,
-   startValue: number,
-   clueText: string | null
-   errorText: string
-}
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "./store/store";
+import {Dispatch} from "redux";
+import {
+   ActionsType,
+   incrementCounterAC,
+   resetCounterAC,
+   setCounterLimitsAC, StateType,
+   updateCounterLimitsAC
+} from "./reducers/counterReducer";
 
 function App() {
 
-   const [state, setState] = useState<StateType>(() => {
-      const saveState = localStorage.getItem("state");
-      if (saveState) return JSON.parse(saveState);
-
-      return {
-         currentValue: 2,
-         maxValue: 5,
-         startValue: 2,
-         clueText: null,
-         errorText: "incorrectValue"
-      }
-   });
-
-   useEffect(() => {
-      localStorage.setItem("state", JSON.stringify(state));
-   }, [state])
+   const state = useSelector<AppRootStateType, StateType>(state => state.counter);
+   const dispatch = useDispatch<Dispatch<ActionsType>>();
 
    const incrementCounter = () => {
-      setState(prevState => {
-         return {
-            ...prevState,
-            currentValue: prevState.currentValue + 1
-         }
-      })
+      dispatch(incrementCounterAC());
    }
 
    const resetCounter = () => {
-      setState(prevState => {
-         return {
-            ...prevState,
-            currentValue: prevState.startValue
-         }
-      })
+      dispatch(resetCounterAC());
    }
 
    const updateCounterLimits = (key: "startValue" | "maxValue", value: number) => {
-      setState({
-         ...state,
-         [key]: value,
-         currentValue: -1,
-         clueText: "enter values and press 'set'"
-      })
+      dispatch(updateCounterLimitsAC(key,  value));
    }
 
    const setCounterLimit = () => {
-      setState(prevState => {
-         return {
-            ...prevState,
-            currentValue: prevState.startValue,
-            clueText: null,
-         }
-      })
+      dispatch(setCounterLimitsAC());
    }
 
 

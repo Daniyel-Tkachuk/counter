@@ -1,13 +1,4 @@
-
-/*export type StateType = {
-   currentValue: number
-   maxValue: number
-   startValue: number
-   clueText: string | null
-   errorText: string
-}*/
-
-type StateType = typeof initialState;
+export type StateType = typeof initialState;
 
 const initialState = {
    currentValue: 2,
@@ -56,22 +47,22 @@ export const counterReducer = (state: StateType = initialState, action: ActionsT
 
 
 
-type IncrementCounterType = ReturnType<typeof incrementCounter>;
-export const incrementCounter = () => {
+type IncrementCounterAT = ReturnType<typeof incrementCounterAC>;
+export const incrementCounterAC = () => {
    return {
       type: "INCREMENT"
    } as const;
 };
 
-type ResetCounterType = ReturnType<typeof resetCounter>;
-export const resetCounter = () => {
+type ResetCounterAT = ReturnType<typeof resetCounterAC>;
+export const resetCounterAC = () => {
   return {
       type: "RESET"
   } as const;
 };
 
-type UpdateCounterLimitsType = ReturnType<typeof updateCounterLimits>;
-export const updateCounterLimits = (key: "startValue" | "maxValue", value: number) => {
+type UpdateCounterLimitsAT = ReturnType<typeof updateCounterLimitsAC>;
+export const updateCounterLimitsAC = (key: "startValue" | "maxValue", value: number) => {
    return {
       type: "UPDATE_LIMITS",
       payload: {
@@ -81,13 +72,13 @@ export const updateCounterLimits = (key: "startValue" | "maxValue", value: numbe
    } as const;
 };
 
-type SetCounterLimitsType = ReturnType<typeof setCounterLimits>;
-export const setCounterLimits = () => {
+type SetCounterLimitsAT = ReturnType<typeof setCounterLimitsAC>;
+export const setCounterLimitsAC = () => {
    return {
       type: "SET_LIMITS"
    } as const;
 };
 
 // ActionsType for counterReducer
-type ActionsType = IncrementCounterType | ResetCounterType
-   | UpdateCounterLimitsType | SetCounterLimitsType;
+export type ActionsType = IncrementCounterAT | ResetCounterAT
+   | UpdateCounterLimitsAT | SetCounterLimitsAT;

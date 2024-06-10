@@ -1,10 +1,10 @@
 import {
    counterReducer,
-   incrementCounter,
-   resetCounter,
-   setCounterLimits,
+   incrementCounterAC,
+   resetCounterAC,
+   setCounterLimitsAC,
    StateType,
-   updateCounterLimits
+   updateCounterLimitsAC
 } from "./counterReducer";
 
 let startState: StateType;
@@ -21,21 +21,21 @@ beforeEach(() => {
 
 
 test("currentValue should be increased", () => {
-   const endState = counterReducer(startState, incrementCounter());
+   const endState = counterReducer(startState, incrementCounterAC());
 
    expect(endState).not.toEqual(startState);
    expect(endState.currentValue).toBe(2);
 });
 
 test("currentValue should be reset to minimum value", () => {
-   const endState = counterReducer(startState, resetCounter());
+   const endState = counterReducer(startState, resetCounterAC());
 
    expect(endState).not.toEqual(startState);
    expect(endState.currentValue).toBe(startState.startValue);
 });
 
 test("correct limits (startValue) should be changed", () => {
-   const endState = counterReducer(startState, updateCounterLimits("startValue", 10));
+   const endState = counterReducer(startState, updateCounterLimitsAC("startValue", 10));
 
    expect(endState).not.toEqual(startState);
    expect(endState.startValue).toBe(10);
@@ -44,7 +44,7 @@ test("correct limits (startValue) should be changed", () => {
 });
 
 test("correct limits (maxValue) should be changed", () => {
-   const endState = counterReducer(startState, updateCounterLimits("maxValue", 20));
+   const endState = counterReducer(startState, updateCounterLimitsAC("maxValue", 20));
 
    expect(endState).not.toEqual(startState);
    expect(endState.maxValue).toBe(20);
@@ -53,7 +53,7 @@ test("correct limits (maxValue) should be changed", () => {
 });
 
 test("correct limits should be installed", () => {
-   const endState = counterReducer(startState, setCounterLimits());
+   const endState = counterReducer(startState, setCounterLimitsAC());
 
    expect(endState.currentValue).toBe(5);
    expect(endState.clueText).toBe(null);

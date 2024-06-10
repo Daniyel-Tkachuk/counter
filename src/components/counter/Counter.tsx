@@ -1,7 +1,8 @@
 import React, {FC, JSX} from 'react';
 import s from './Counter.module.css';
 import {Button} from "../button/Button";
-import {StateType} from "../../App";
+import {StateType} from "../../reducers/counterReducer";
+
 
 type Props = {
    state: StateType

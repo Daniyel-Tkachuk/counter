@@ -3,7 +3,7 @@ import s from './Settings.module.css';
 import {Button} from "../button/Button";
 import {Input} from "../input/Input";
 import {Text} from "../text/Text";
-import {StateType} from "../../App";
+import {StateType} from "../../reducers/counterReducer";
 
 type Props = {
    state: StateType
